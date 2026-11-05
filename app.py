@@ -58,7 +58,7 @@ def init_db():
         CREATE TABLE IF NOT EXISTS votes (
           id INTEGER PRIMARY KEY AUTOINCREMENT,
           created_at TEXT NOT NULL,
-          choice TEXT NOT NULL CHECK(choice IN ('A','B')),
+          choice TEXT NOT NULL CHECK(choice IN ('A','B','C')),
           role TEXT,
           name TEXT,
           comment TEXT,
@@ -71,6 +71,36 @@ def init_db():
 
 
 init_db()
+
+def migrate_db():
+    """Allow choice C on existing DBs created with A/B-only CHECK."""
+    conn = sqlite3.connect(DB_PATH)
+    row = conn.execute("SELECT sql FROM sqlite_master WHERE type='table' AND name='votes'").fetchone()
+    if row and row[0] and "'C'" not in row[0]:
+        conn.execute("ALTER TABLE votes RENAME TO votes_old")
+        conn.execute(
+            """
+            CREATE TABLE votes (
+              id INTEGER PRIMARY KEY AUTOINCREMENT,
+              created_at TEXT NOT NULL,
+              choice TEXT NOT NULL CHECK(choice IN ('A','B','C')),
+              role TEXT,
+              name TEXT,
+              comment TEXT,
+              ua TEXT
+            )
+            """
+        )
+        conn.execute(
+            "INSERT INTO votes(id,created_at,choice,role,name,comment,ua) "
+            "SELECT id,created_at,choice,role,name,comment,ua FROM votes_old"
+        )
+        conn.execute("DROP TABLE votes_old")
+        conn.commit()
+    conn.close()
+
+
+migrate_db()
 
 
 @app.get("/health")
@@ -88,6 +118,12 @@ def variant_a():
 @app.get("/b")
 def variant_b():
     return send_from_directory(APP_DIR / "static", "variant-b.html")
+
+
+@app.get("/c/")
+@app.get("/c")
+def variant_c():
+    return send_from_directory(APP_DIR / "static", "variant-c.html")
 
 
 SURVEY_HTML = r"""
@@ -111,8 +147,8 @@ SURVEY_HTML = r"""
 .tabs button.on{background:#121316;color:#fff;border-color:#121316}
 .frame-wrap{border:1px solid var(--ln);border-radius:18px;overflow:hidden;background:#121316;box-shadow:0 18px 40px -28px #0008}
 .frame-wrap iframe{width:100%;height:min(72vh,720px);border:0;background:#121316;display:block}
-.side{display:none;grid-template-columns:1fr 1fr;gap:10px}
-@media(min-width:900px){.side.mode{display:grid}.single.mode{display:none}}
+.side{display:none;grid-template-columns:1fr 1fr 1fr;gap:8px}
+@media(min-width:1100px){.side.mode{display:grid}.single.mode{display:none}}
 @media(max-width:899px){.side{display:none!important}.single{display:block}}
 .card{background:#fff;border:1px solid var(--ln);border-radius:18px;padding:18px;margin-top:18px}
 label{display:block;font-weight:700;margin:14px 0 6px}
@@ -143,6 +179,7 @@ textarea{min-height:90px;resize:vertical}
   <div class="tabs" id="ab-tabs">
     <button type="button" class="on" data-ab="a">גרסה A · כהה מלא</button>
     <button type="button" data-ab="b">גרסה B · גיבור כהה + שאר בהיר</button>
+    <button type="button" data-ab="c">גרסה C · בהיר מלא</button>
   </div>
 
   <div class="single mode" id="single">
@@ -157,18 +194,24 @@ textarea{min-height:90px;resize:vertical}
       <div style="text-align:center;font-weight:800;margin-bottom:6px">B · משולב</div>
       <div class="frame-wrap"><iframe title="B" src="/b/" loading="lazy"></iframe></div>
     </div>
+    <div>
+      <div style="text-align:center;font-weight:800;margin-bottom:6px">C · בהיר</div>
+      <div class="frame-wrap"><iframe title="C" src="/c/" loading="lazy"></iframe></div>
+    </div>
   </div>
   <div class="links">
     <a href="/a/" target="_blank" rel="noopener">פתיחת גרסה A בחלון חדש</a>
     <a href="/b/" target="_blank" rel="noopener">פתיחת גרסה B בחלון חדש</a>
+    <a href="/c/" target="_blank" rel="noopener">פתיחת גרסה C בחלון חדש</a>
   </div>
 
   <form class="card" id="form">
     <h2 style="margin:0 0 6px;font-size:22px">שאלה אחת</h2>
     <p style="margin:0;color:#5c5d62">איזו גרסה משדרת יותר אמון וגורמת לך לרצות לפנות?</p>
     <div class="opts" style="margin-top:14px">
-      <label class="opt"><input type="radio" name="choice" value="A" required> <span><b>גרסה A</b> — רקע כהה מלא (העיצוב שנבחר)</span></label>
+      <label class="opt"><input type="radio" name="choice" value="A" required> <span><b>גרסה A</b> — רקע כהה מלא (Lovable)</span></label>
       <label class="opt"><input type="radio" name="choice" value="B" required> <span><b>גרסה B</b> — גיבור כהה, ושאר הדף בהיר</span></label>
+      <label class="opt"><input type="radio" name="choice" value="C" required> <span><b>גרסה C</b> — בהיר מלא (קונספט B המקורי)</span></label>
     </div>
     <label for="role">תפקיד (אופציונלי)</label>
     <select id="role" name="role">
@@ -193,7 +236,7 @@ const single=document.getElementById('single');
 const side=document.getElementById('side');
 abTabs.forEach(b=>b.onclick=()=>{
   abTabs.forEach(x=>x.classList.toggle('on',x===b));
-  frame.src=b.dataset.ab==='a'?'/a/':'/b/';
+  frame.src={'a':'/a/','b':'/b/','c':'/c/'}[b.dataset.ab]||'/a/';
 });
 viewTabs.forEach(b=>b.onclick=()=>{
   viewTabs.forEach(x=>x.classList.toggle('on',x===b));
@@ -235,7 +278,7 @@ def survey():
 def vote():
     data = request.get_json(silent=True) or {}
     choice = (data.get("choice") or "").strip().upper()
-    if choice not in ("A", "B"):
+    if choice not in ("A", "B", "C"):
         return jsonify(error="choice"), 400
     role = (data.get("role") or "").strip()
     if role and role not in ("צוות", "לקוח"):
@@ -275,10 +318,11 @@ th{background:#121316;color:#fff}
 <div class="wrap">
   <h1>תוצאות סקר עיצוב דף הבית</h1>
   <p class="muted">{{ company }} · גישה למנהלים בלבד · עודכן {{ now }}</p>
-  <div class="cards">
+  <div class="cards" style="grid-template-columns:repeat(4,1fr)">
     <div class="card"><span>סה״כ</span><b>{{ total }}</b></div>
     <div class="card"><span>גרסה A (כהה)</span><b>{{ a }}</b><div class="muted">{{ ap }}%</div></div>
     <div class="card"><span>גרסה B (משולב)</span><b>{{ b }}</b><div class="muted">{{ bp }}%</div></div>
+    <div class="card"><span>גרסה C (בהיר)</span><b>{{ c }}</b><div class="muted">{{ cp }}%</div></div>
   </div>
   <table>
     <thead><tr><th>#</th><th>זמן</th><th>בחירה</th><th>תפקיד</th><th>שם</th><th>הערה</th></tr></thead>
@@ -319,9 +363,11 @@ def results():
     ).fetchall()
     total = len(rows)
     a = sum(1 for r in rows if r["choice"] == "A")
-    b = total - a
+    b = sum(1 for r in rows if r["choice"] == "B")
+    c = sum(1 for r in rows if r["choice"] == "C")
     ap = round(100 * a / total) if total else 0
     bp = round(100 * b / total) if total else 0
+    cp = round(100 * c / total) if total else 0
     resp = Response(
         render_template_string(
             ADMIN_HTML,
@@ -331,8 +377,10 @@ def results():
             total=total,
             a=a,
             b=b,
+            c=c,
             ap=ap,
             bp=bp,
+            cp=cp,
         )
     )
     if request.args.get("token") == ADMIN_TOKEN:

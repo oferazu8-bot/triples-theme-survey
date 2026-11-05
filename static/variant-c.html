@@ -1,0 +1,252 @@
+<!doctype html><html lang="he" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow"><title>גרסה C · בהיר | טריפל אס אנרגיה מתחדשת</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{--g:#707176;--gd:#3b3c40;--r:#E2381B;--o:#FD8943;--s:#F6BA65;--bg:#faf8f5;--ln:#ebe6df;--grad:linear-gradient(100deg,#E2381B,#FD8943 60%,#F6BA65)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Heebo,Arial,sans-serif;color:var(--gd);background:#fff;line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:inherit}img{max-width:100%;display:block}
+.c{max-width:1200px;margin:auto;padding:0 24px}
+.ph{background:#fff4dc;color:#8a5a00;border:1px dashed #e2b45b;border-radius:6px;padding:0 6px;font-size:.85em;font-weight:600;white-space:nowrap}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:700;letter-spacing:.08em;color:var(--r);text-transform:uppercase}
+.eyebrow:before{content:"";width:28px;height:2px;background:var(--grad)}
+h2{font-size:clamp(28px,4vw,44px);line-height:1.15;font-weight:800;margin:.3em 0 .4em;color:#2a2b2f;letter-spacing:-.01em}
+.lead{font-size:clamp(16px,1.6vw,19px);color:var(--g);max-width:640px}
+section{padding:110px 0}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:15px 28px;border-radius:999px;font-weight:700;text-decoration:none;font-size:16px;transition:.25s;border:0;cursor:pointer;font-family:inherit}
+.btn.p{background:var(--grad);color:#fff;box-shadow:0 10px 30px -10px #E2381B99}.btn.p:hover{transform:translateY(-2px);box-shadow:0 16px 36px -10px #E2381Bbb}
+.btn.o{background:#fff;color:var(--gd);border:1.5px solid var(--ln)}.btn.o:hover{border-color:var(--o);color:var(--r)}
+/* header */
+header{position:fixed;inset:0 0 auto;z-index:60;transition:.3s}header.sc{background:#ffffffee;backdrop-filter:blur(12px);box-shadow:0 1px 0 var(--ln)}
+.hd{display:flex;align-items:center;gap:28px;height:78px}.hd img{height:40px;width:auto}
+nav{display:flex;gap:26px;margin-inline-start:auto}nav a{text-decoration:none;font-weight:500;font-size:15px;color:var(--gd);position:relative}nav a:after{content:"";position:absolute;inset:auto 0 -6px;height:2px;background:var(--grad);transform:scaleX(0);transition:.25s}nav a:hover:after{transform:none}
+.hd .btn{padding:11px 20px;font-size:14px}.bg{display:none;background:none;border:0;font-size:26px;margin-inline-start:auto}
+/* hero */
+.hero{position:relative;min-height:min(100vh,860px);display:flex;align-items:center;padding:120px 0 80px;background:var(--bg);overflow:hidden}
+.hero .c{display:grid;grid-template-columns:1.05fr 1fr;gap:56px;align-items:center}
+.hero h1{font-size:clamp(38px,5.6vw,72px);line-height:1.04;font-weight:900;margin:.25em 0;color:#232428;letter-spacing:-.02em}
+.hero h1 em{font-style:normal;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero .cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.badge{display:inline-flex;gap:8px;align-items:center;background:#fff;border:1px solid var(--ln);border-radius:999px;padding:6px 14px;font-size:13px;color:var(--g)}
+.badge i{width:8px;height:8px;border-radius:50%;background:#2fb36b;box-shadow:0 0 0 4px #2fb36b22}
+.hv{position:relative;aspect-ratio:4/4.4}.hv .im{position:absolute;border-radius:28px;overflow:hidden;box-shadow:0 30px 60px -25px #3b3c4066}
+.hv .im img{width:100%;height:100%;object-fit:cover;transform:scale(1.08);transition:transform 1.4s cubic-bezier(.2,.7,.2,1)}.in .hv .im img{transform:scale(1)}
+.hv .a{inset:0 0 18% 14%}.hv .b{inset:52% 46% 0 0;border:6px solid #fff}
+.hv .chip{position:absolute;left:-10px;top:12%;background:#fff;border-radius:18px;padding:14px 18px;box-shadow:0 18px 40px -18px #0004;font-size:13px;color:var(--g);animation:fl 5s ease-in-out infinite}
+.hv .chip b{display:block;font-size:26px;color:#232428;line-height:1.1}
+@keyframes fl{50%{transform:translateY(-10px)}}
+.sun{position:absolute;width:780px;height:780px;border-radius:50%;background:radial-gradient(circle,#F6BA6555,#FD894322 40%,transparent 70%);top:-260px;left:-200px;animation:pulse 9s ease-in-out infinite}
+@keyframes pulse{50%{transform:scale(1.08);opacity:.8}}
+/* stats */
+.stats{padding:0;margin-top:-56px;position:relative;z-index:2}
+.sg{display:grid;grid-template-columns:repeat(5,1fr);background:#fff;border-radius:24px;box-shadow:0 30px 60px -30px #3b3c4044;border:1px solid var(--ln)}
+.sg div{padding:30px 20px;text-align:center;border-inline-start:1px solid var(--ln)}.sg div:first-child{border:0}
+.sg b{display:block;font-size:clamp(30px,3.4vw,44px);font-weight:900;color:#232428;line-height:1}.sg b span{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.sg small{color:var(--g);font-size:14px}
+/* tracks */
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin:30px 0}
+.tab{padding:12px 22px;border-radius:999px;border:1.5px solid var(--ln);background:#fff;font:700 15px Heebo;cursor:pointer;color:var(--gd);transition:.2s}
+.tab.on{background:#232428;color:#fff;border-color:#232428}
+.tw{display:grid;grid-template-columns:1fr 1.25fr;gap:40px;align-items:center;background:var(--bg);border-radius:28px;padding:40px}
+.tw h3{font-size:28px;margin:0 0 8px}.tw ul{padding:0;list-style:none;margin:18px 0}.tw li{padding:10px 0;border-bottom:1px solid var(--ln);display:flex;gap:12px}.tw li b{min-width:110px;color:#232428}
+.flow{width:100%;height:auto}.flow .node rect{fill:#fff;stroke:var(--ln);stroke-width:1.5}.flow text{font:700 15px Heebo;fill:#232428;text-anchor:middle}.flow .sub{font:400 12px Heebo;fill:var(--g)}
+.flow path{fill:none;stroke-width:2.5;stroke-dasharray:6 8;animation:dash 1.4s linear infinite}.flow .pm{stroke:var(--r)}.flow .pe{stroke:#2fb36b}.flow .pi{stroke:var(--o)}
+@keyframes dash{to{stroke-dashoffset:-28}}
+.flow .dot{animation:none}.leg{display:flex;gap:18px;flex-wrap:wrap;font-size:13px;color:var(--g)}.leg i{display:inline-block;width:18px;height:3px;border-radius:2px;margin-inline-end:6px;vertical-align:middle}
+.fade{animation:fd .5s ease}@keyframes fd{from{opacity:0;transform:translateY(8px)}}
+/* products */
+.pg{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:40px}
+.pc{position:relative;padding:30px;border-radius:22px;border:1px solid var(--ln);background:#fff;text-decoration:none;transition:.3s;overflow:hidden}
+.pc:before{content:"";position:absolute;inset:auto 0 0;height:3px;background:var(--grad);transform:scaleX(0);transform-origin:right;transition:.35s}
+.pc:hover{transform:translateY(-4px);box-shadow:0 24px 50px -28px #3b3c4066}.pc:hover:before{transform:none}
+.pc svg{width:44px;height:44px;stroke:var(--r);fill:none;stroke-width:1.6}.pc h3{margin:16px 0 6px;font-size:20px;color:#232428}.pc p{margin:0;color:var(--g);font-size:15px}
+.pc .ar{position:absolute;left:24px;top:30px;color:var(--o);opacity:0;transition:.3s}.pc:hover .ar{opacity:1;transform:translateX(-4px)}
+/* why */
+.why{background:#232428;color:#e9e7e4}.why h2{color:#fff}.why .lead{color:#b9b8b6}
+.wg{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:40px}
+.wc{padding:30px;border-radius:22px;background:#2c2d32;border:1px solid #3a3b40}.wc .n{font-size:44px;font-weight:900;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;line-height:1}
+.wc h3{color:#fff;margin:14px 0 8px;font-size:19px}.wc p{margin:0;font-size:14.5px;color:#b9b8b6}
+.deps{margin-top:60px;position:relative}.deps .ln{position:absolute;top:27px;right:4%;left:4%;height:2px;background:#3a3b40}.deps .ln i{display:block;height:100%;width:0;background:var(--grad);transition:width 2.2s cubic-bezier(.3,.7,.2,1)}.in .deps .ln i{width:100%}
+.dl{display:grid;grid-template-columns:repeat(7,1fr);gap:8px;position:relative}.dl div{text-align:center;font-size:14px}.dl span{display:grid;place-items:center;width:56px;height:56px;margin:0 auto 10px;border-radius:50%;background:#2c2d32;border:2px solid #4a4b50;font-weight:800;color:#fff;transition:.4s}
+.in .dl span{border-color:var(--o)}
+/* reg */
+.reg{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
+.dates{display:grid;gap:14px}.dt{display:flex;gap:18px;align-items:center;padding:22px;border-radius:20px;background:#fff;border:1px solid var(--ln);box-shadow:0 14px 30px -24px #0005}
+.dt .d{flex:none;width:96px;height:96px;border-radius:18px;background:var(--grad);color:#fff;display:grid;place-items:center;text-align:center;font-weight:900;font-size:22px;line-height:1.05}.dt .d small{display:block;font-size:11px;font-weight:600;opacity:.9}
+.dt p{margin:0;font-size:15px}.kc{display:grid;gap:12px}.kc a{display:flex;justify-content:space-between;align-items:center;padding:20px 22px;border-radius:16px;background:var(--bg);text-decoration:none;font-weight:700;transition:.2s}.kc a:hover{background:#fff1e8;color:var(--r)}
+/* projects */
+.prj{display:grid;grid-template-columns:1.4fr 1fr 1fr;grid-auto-rows:260px;gap:16px;margin-top:40px}
+.pj{position:relative;border-radius:22px;overflow:hidden}.pj:first-child{grid-row:span 2}
+.pj img{width:100%;height:100%;object-fit:cover;transition:1s}.pj:hover img{transform:scale(1.05)}
+.pj .cap{position:absolute;inset:auto 0 0;padding:22px;background:linear-gradient(transparent,#000c);color:#fff}.pj .cap b{font-size:19px;display:block}.pj .cap small{opacity:.85}
+.pj .tg{position:absolute;top:14px;right:14px;background:#fff;color:#232428;font-size:12px;font-weight:700;border-radius:999px;padding:4px 12px}.pj .tg.p{background:#232428;color:#fff}
+/* logos */
+.logos{padding:70px 0;border-block:1px solid var(--ln);overflow:hidden}.logos p{text-align:center;color:var(--g);margin:0 0 26px;font-size:14px}
+.mq{display:flex;width:max-content;animation:mq 40s linear infinite}.mq:hover{animation-play-state:paused}
+.mq img{height:44px;width:auto;margin:0 42px;opacity:.55;filter:grayscale(1);transition:.3s}.mq img:hover{opacity:1}
+@keyframes mq{to{transform:translateX(50%)}}
+/* testimonials */
+.tg3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:40px}
+.tq{padding:30px;border-radius:22px;background:var(--bg);position:relative}.tq:before{content:"”";position:absolute;top:-6px;left:22px;font-size:90px;color:var(--s);line-height:1}
+.tq .st{color:var(--o);letter-spacing:2px}.tq p{font-size:16px;margin:12px 0 18px}.tq footer{display:flex;gap:12px;align-items:center;font-size:14px;color:var(--g)}.tq footer i{width:42px;height:42px;border-radius:50%;background:#e8e3dc}
+/* calc teaser */
+.calc{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;background:linear-gradient(135deg,#fff7ef,#fff);border:1px solid var(--ln);border-radius:30px;padding:50px}
+.bars{direction:ltr;display:flex;align-items:flex-end;gap:10px;height:200px;padding:20px;background:#fff;border-radius:20px;border:1px solid var(--ln)}
+.bars i{flex:1;border-radius:8px 8px 3px 3px;background:var(--grad);height:8%;transition:height 1.4s cubic-bezier(.3,.7,.2,1)}
+.in .bars i:nth-child(1){height:22%}.in .bars i:nth-child(2){height:34%}.in .bars i:nth-child(3){height:48%}.in .bars i:nth-child(4){height:60%}.in .bars i:nth-child(5){height:71%}.in .bars i:nth-child(6){height:83%}.in .bars i:nth-child(7){height:94%}
+.bars i:nth-child(n){transition-delay:calc(var(--i)*90ms)}
+/* lead */
+.lead-s{background:#232428;color:#fff;border-radius:34px;padding:60px;display:grid;grid-template-columns:1fr 1fr;gap:50px;position:relative;overflow:hidden}
+.lead-s:after{content:"";position:absolute;width:500px;height:500px;border-radius:50%;background:radial-gradient(#FD894355,transparent 65%);left:-150px;bottom:-250px}
+.lead-s h2{color:#fff}.lead-s .lead{color:#c8c6c3}
+form{display:grid;grid-template-columns:1fr 1fr;gap:12px;position:relative;z-index:1}
+form label{font-size:13px;color:#c8c6c3;display:grid;gap:6px}form .f{grid-column:1/-1}
+input,select{font:16px Heebo;padding:13px 14px;border-radius:12px;border:1px solid #45464b;background:#2c2d32;color:#fff}
+input:focus,select:focus{outline:2px solid var(--o);border-color:transparent}
+footer.ft{padding:60px 0 30px;color:var(--g);font-size:14px}.fg{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:30px}.fg h4{color:#232428;margin:0 0 10px}.fg a{display:block;text-decoration:none;padding:3px 0}.fg a:hover{color:var(--r)}
+.cp{margin-top:40px;padding-top:20px;border-top:1px solid var(--ln);display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+/* fab */
+.fab{position:fixed;left:22px;bottom:22px;z-index:70;display:grid;gap:10px}
+.fab a{display:flex;align-items:center;gap:8px;padding:13px 18px;border-radius:999px;text-decoration:none;font-weight:700;font-size:14px;box-shadow:0 12px 30px -10px #0006}
+.fab .f1{background:#fff;color:#232428;border:1px solid var(--ln)}.fab .f2{background:var(--grad);color:#fff;position:relative}
+.fab .f2:after{content:"";position:absolute;inset:0;border-radius:inherit;box-shadow:0 0 0 0 #FD8943aa;animation:ring 2.2s infinite}@keyframes ring{70%,100%{box-shadow:0 0 0 14px #FD894300}}
+.concept{position:fixed;top:86px;left:16px;z-index:55;background:#232428;color:#fff;font-size:12px;padding:5px 12px;border-radius:999px;opacity:.85}
+/* reveal */
+.rv{opacity:0;transform:translateY(28px);transition:opacity .9s ease,transform .9s cubic-bezier(.2,.7,.2,1)}.rv.in{opacity:1;transform:none}
+.rv.d1{transition-delay:.1s}.rv.d2{transition-delay:.2s}.rv.d3{transition-delay:.3s}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
+@media(max-width:980px){nav,.hd .btn{display:none}.bg{display:block}header.open nav{display:grid;position:absolute;top:78px;inset-inline:0;background:#fff;padding:20px 24px;gap:14px;box-shadow:0 20px 30px -20px #0003}
+.hero .c,.tw,.reg,.calc,.lead-s{grid-template-columns:1fr}.hv{aspect-ratio:1/1}.sg{grid-template-columns:repeat(2,1fr)}.sg div{border:0;border-top:1px solid var(--ln)}.sg div:last-child{grid-column:1/-1}
+.pg,.wg,.tg3{grid-template-columns:1fr 1fr}.prj{grid-template-columns:1fr 1fr;grid-auto-rows:200px}.pj:first-child{grid-column:1/-1;grid-row:auto}
+.dl{grid-template-columns:repeat(4,1fr);row-gap:22px}.deps .ln{display:none}.fg{grid-template-columns:1fr 1fr}section{padding:76px 0}.tw,.calc,.lead-s{padding:28px}}
+@media(max-width:560px){.pg,.wg,.tg3{grid-template-columns:1fr}form{grid-template-columns:1fr}.hero{padding-top:100px}.hv .chip{left:4px}.concept{display:none}}
+</style></head><body><div id="demo-banner" style="position:sticky;top:0;z-index:9999;background:#0396A9;color:#fff;text-align:center;font:700 13px Heebo,Arial;padding:8px">דמו סקר · גרסה C · בהיר מלא · טריפל אס אנרגיה מתחדשת · לא האתר החי · קונספט B מקורי</div>
+<header id="hd"><div class="c hd"><a href="#"><img src="https://triplesolar-staging-production.up.railway.app/assets/cb/ts-logo.png" alt="טריפל אס אנרגיה מתחדשת"></a>
+<nav><a href="#products">מוצרים</a><a href="#tracks">מסלולי יזמות</a><a href="#projects">פרויקטים</a><a href="#knowledge">מרכז ידע</a><a href="#why">אודות</a><a href="#lead">צור קשר</a></nav>
+<a class="btn p" href="#lead">בדיקת היתכנות חינם</a><button class="bg" aria-label="תפריט" onclick="hd.classList.toggle('open')">☰</button></div></header>
+<div class="concept">קונספט B · טיוטה לסקר פנימי</div>
+
+<section class="hero" id="top"><div class="sun"></div><div class="c">
+<div class="rv"><span class="badge"><i></i>פעילים מאז 2015</span>
+<h1>אנרגיה סולארית ואגירה, <em>מקצה לקצה.</em></h1>
+<p class="lead">טריפל אס אנרגיה מתחדשת מתכננת, מקימה, מתחזקת ומנהלת מתקנים סולאריים ומערכות אגירה – מגגות חקלאיים ומסחריים ועד מערכות ביתיות. הכל בבית, תחת קורת גג אחת.</p>
+<div class="cta"><a class="btn p" href="/צור-קשר/#form">בדיקת מודל כלכלי ←</a><a class="btn o" href="/צור-קשר/?track=no-investment#form">בדיקת מסלולים "ללא השקעה"</a></div></div>
+<div class="hv rv d2"><div class="im a"><img src="https://triplesolar-staging-production.up.railway.app/assets/cb/v2.jpg" alt="מבנה תעשייה בעמק – צילום רחפן" fetchpriority="high"></div><div class="im b"><img src="https://triplesolar-staging-production.up.railway.app/assets/cb/m3.jpg" alt="מערכת אגירה" loading="lazy"></div>
+<div class="chip"><b>100+ MW</b>סולארי שהוקמו</div></div></div></section>
+
+<section class="stats"><div class="c"><div class="sg rv">
+<div><b><span data-n="100">0</span>+</b><small>MW סולארי שהוקמו</small></div>
+<div><b><span data-n="20">0</span>+</b><small>MWh אגירה שבוצעו</small></div>
+<div><b>~<span data-n="400">0</span></b><small>לקוחות</small></div>
+<div><b><span data-n="15">0</span></b><small>עובדים</small></div>
+<div><b><span data-n="8">0</span></b><small>מחלקות in-house</small></div></div></div></section>
+
+<section id="tracks"><div class="c">
+<span class="eyebrow rv">מסלולי יזמות</span><h2 class="rv">מסלול שמתאים לכם – עם השקעה או בלי</h2>
+<p class="lead rv">גמישות מלאה במבנה העסקה: רכישה חכמה של ציוד, או מסלולי שכירות ומימון. בחרו מסלול וראו איך הכסף והאנרגיה זורמים. <span class="ph">שמות ותנאי המסלולים – לאישור</span></p>
+<div class="tabs rv" id="tabs"></div>
+<div class="tw rv"><div id="tinfo"></div>
+<div><svg class="flow" viewBox="0 0 620 330" id="flow" aria-label="תרשים זרימה של המסלול">
+<g class="node"><rect x="430" y="20" width="180" height="84" rx="18"/><text x="520" y="56">בעל הנכס</text><text class="sub" x="520" y="80" id="o1">גג / קרקע / מבנה</text></g>
+<g class="node"><rect x="220" y="123" width="180" height="84" rx="18" style="stroke:#FD8943;stroke-width:2"/><text x="310" y="158">טריפל אס</text><text class="sub" x="310" y="182">תכנון · רישוי · הקמה · שירות</text></g>
+<g class="node"><rect x="10" y="226" width="180" height="84" rx="18"/><text x="100" y="262">רשת החשמל</text><text class="sub" x="100" y="286">חח"י / ספק</text></g>
+<g class="node"><rect x="10" y="20" width="180" height="84" rx="18"/><text x="100" y="56">המערכת</text><text class="sub" x="100" y="80" id="own">בעלות: …</text></g>
+<path id="p1" class="pi" d="M430 70 C 330 70, 300 90, 310 123"/>
+<path id="p2" class="pe" d="M220 165 C 160 165, 120 150, 100 104"/>
+<path class="pe" d="M100 104 C 60 160, 60 200, 100 226"/>
+<path id="p3" class="pm" d="M190 275 C 380 290, 520 220, 520 104"/>
+<circle r="6" fill="#E2381B"><animateMotion dur="3s" repeatCount="indefinite" path="M190 275 C 380 290, 520 220, 520 104"/></circle>
+<circle r="6" fill="#FD8943"><animateMotion dur="2.6s" repeatCount="indefinite" path="M430 70 C 330 70, 300 90, 310 123"/></circle>
+<circle r="6" fill="#2fb36b"><animateMotion dur="2.2s" repeatCount="indefinite" path="M100 104 C 60 160, 60 200, 100 226"/></circle>
+<text class="sub" x="470" y="245" id="l3">הכנסות</text><text class="sub" x="330" y="96" id="l1">השקעה</text><text class="sub" x="45" y="170">אנרגיה</text>
+</svg><div class="leg"><span><i style="background:#FD8943"></i>השקעה / תשלום</span><span><i style="background:#2fb36b"></i>אנרגיה</span><span><i style="background:#E2381B"></i>הכנסות</span></div></div></div>
+</div></section>
+
+<section id="products" style="background:var(--bg)"><div class="c">
+<span class="eyebrow rv">מוצרים ופתרונות</span><h2 class="rv">כל פתרונות האנרגיה, ממקור אחד</h2>
+<div class="pg" id="pg"></div></div></section>
+
+<section class="why" id="why"><div class="c">
+<span class="eyebrow rv">למה טריפל אס</span><h2 class="rv">4 יתרונות שקשה להעתיק</h2>
+<div class="wg">
+<div class="wc rv"><div class="n">01</div><h3>מודלים עסקיים ייחודיים</h3><p>מסלול SMART לרכישה ישירה, ומסלולי שכירות ומימון: BOT, PAY ONE, DAY ONE.</p></div>
+<div class="wc rv d1"><div class="n">02</div><h3>פיתוחים ושיתופי פעולה</h3><p>חממות סולאריות, אגרו-וולטאי ו"1 דונם בנחלה", אגירה במתח נמוך וגבוה, הסדרת שוק.</p></div>
+<div class="wc rv d2"><div class="n">03</div><h3>הכל in-house</h3><p>רישוי, הנדסה, חשמל ושירות בתוך החברה – בלי תלות ביועצים חיצוניים.</p></div>
+<div class="wc rv d3"><div class="n">04</div><h3>מוניטין</h3><p>פעילים מאז 2015, פריסה ארצית ומעמד מוביל בקרב חברות ה-EPC.</p></div></div>
+<div class="deps rv"><div class="ln"><i></i></div><div class="dl">
+<div><span>1</span>מכירות</div><div><span>2</span>רגולציה ורישוי</div><div><span>3</span>תכנון והנדסה</div><div><span>4</span>חשמל</div><div><span>5</span>ביצוע</div><div><span>6</span>רכש ולוגיסטיקה</div><div><span>7</span>שירות</div></div></div>
+<div class="rv" style="margin-top:50px;display:grid;grid-template-columns:auto 1fr;gap:22px;align-items:center;padding:28px 32px;border-radius:22px;background:#2c2d32;border:1px solid #3a3b40"><div style="width:64px;height:64px;border-radius:50%;background:var(--grad);display:grid;place-items:center;font-weight:900;color:#fff;font-size:22px">מנכ"ל</div><p style="margin:0;font-size:17px;color:#e9e7e4">מנכ"ל החברה פעיל בתחום מאז 2008 ומייסד פא"י – פורום אנרגיה ירוקה לחברות EPC וקבלנים בסגמנט הגגות.</p></div>
+</div></section>
+
+<section id="knowledge"><div class="c reg">
+<div><span class="eyebrow rv">רגולציה ומרכז ידע</span><h2 class="rv">מועדים שכדאי לסמן ביומן</h2><p class="lead rv">מחלקת הרגולציה שלנו עוקבת אחר כל שינוי באסדרה – ומתרגמת אותו להחלטה עסקית.</p>
+<div class="kc rv"><a href="/מערכת-סולארית-משולבת-אגירה-באסדרת-800-שע/">אסדרת 800 שעות אגירה <span>←</span></a><a href="/צריכה-עצמית-ומונה-נטו/">צריכה עצמית ומונה נטו <span>←</span></a><a href="/אסדרת-שוק-ppa/">אסדרת שוק ו-PPA <span>←</span></a><a href="/מרכז-ידע/" style="background:none;color:var(--r)">לכל מרכז הידע <span>←</span></a></div></div>
+<div class="dates">
+<div class="dt rv"><div class="d">10.11<small>2026</small></div><p><b>מועד אחרון להגשת הערות</b><br>לשימוע רשות החשמל על הארכת אסדרת המתח הנמוך.</p></div>
+<div class="dt rv d1"><div class="d">31.12<small>2026</small></div><p><b>בקשת חיבור שתוגש עד מועד זה</b><br>נבחנת לפי תעריפי 2026.</p></div></div></div></section>
+
+<section id="projects" style="background:var(--bg)"><div class="c">
+<span class="eyebrow rv">פרויקטים נבחרים</span><h2 class="rv">עבודה שמדברת בעד עצמה</h2>
+<div class="prj">
+<div class="pj rv"><img loading="lazy" src="https://triplesolar-staging-production.up.railway.app/assets/cb/v1.jpg" alt="מבנה תעשייה בעמק"><span class="tg">מסחרי / תעשייה</span><div class="cap"><b>מבנה תעשייה רב-מבני בעמק · 1,200 kW</b><small>פרויקט רב-מבני, תועד ברחפן לאורך ההתקנה · <span class="ph">[פרטים יעודכנו]</span></small></div></div>
+<div class="pj rv d1"><img loading="lazy" src="https://triplesolar-staging-production.up.railway.app/assets/cb/m1.jpg" alt="פרויקט מסחרי עם אגירה"><span class="tg">מסחרי + אגירה</span><div class="cap"><b>PV 1,580 kW + אגירה 6,264 kWh</b><small>פרויקט האגירה הגדול במאגר שלנו</small></div></div>
+<div class="pj rv d2"><img loading="lazy" src="https://triplesolar-staging-production.up.railway.app/assets/cb/m3.jpg" alt="מתקני אגירה"><span class="tg">אגירה</span><div class="cap"><b>מתקני אגירה במתח נמוך</b><small><span class="ph">[פרטים יעודכנו]</span></small></div></div>
+<div class="pj rv d1"><img loading="lazy" src="https://triplesolar-staging-production.up.railway.app/assets/cb/g1.jpg" alt="חממות סולאריות"><span class="tg p">פרויקט שותפים</span><div class="cap"><b>חממות סולאריות</b><small>פיתוח ייחודי · <span class="ph">[פרטים יעודכנו]</span></small></div></div>
+<div class="pj rv d2"><img loading="lazy" src="https://triplesolar-staging-production.up.railway.app/assets/cb/paz1.jpg" alt="תחנת דלק פז עם מערכת סולארית"><span class="tg">מסחרי · פריסה ארצית</span><div class="cap"><b>רשת תחנות דלק פז</b><small>מערכות סולאריות על גגות תחנות ברחבי הארץ · 28–70 kW לתחנה</small></div></div>
+</div></div></section>
+
+<div class="logos"><p>סומכים עלינו · <span class="ph">[לוגואים יעודכנו]</span></p><div class="mq" id="mq"></div></div>
+
+<section><div class="c"><span class="eyebrow rv">ממליצים</span><h2 class="rv">מה הלקוחות אומרים</h2>
+<div class="tg3"><div class="tq rv"><div class="st">★★★★★</div><p><span class="ph">[ציטוט לקוח יעודכן]</span></p><footer><i></i><span class="ph">[שם לקוח – באישור]</span></footer></div>
+<div class="tq rv d1"><div class="st">★★★★★</div><p><span class="ph">[ציטוט לקוח יעודכן]</span></p><footer><i></i><span class="ph">[שם לקוח – באישור]</span></footer></div>
+<div class="tq rv d2"><div class="st">★★★★★</div><p><span class="ph">[ציטוט לקוח יעודכן]</span></p><footer><i></i><span class="ph">[שם לקוח – באישור]</span></footer></div></div></div></section>
+
+<section style="padding-top:0"><div class="c"><div class="calc rv"><div><span class="eyebrow">מחשבון תשואה</span><h2>כמה תחסכו?</h2><p class="lead">הערכה ראשונית של גודל המערכת, התועלת השנתית והחזר ההשקעה – תוך דקה.</p><a class="btn p" href="/מחשבונים/">למחשבון ←</a></div>
+<div class="bars"><i style="--i:0"></i><i style="--i:1"></i><i style="--i:2"></i><i style="--i:3"></i><i style="--i:4"></i><i style="--i:5"></i><i style="--i:6"></i></div></div></div></section>
+
+<section id="lead" style="padding-top:0"><div class="c"><div class="lead-s rv"><div><span class="eyebrow">בואו נדבר</span><h2>בואו נבדוק את הפרויקט שלכם</h2><p class="lead">השאירו פרטים ונחזור עם בדיקת היתכנות ומודל כלכלי מותאם. בלי התחייבות.</p></div>
+<form onsubmit="event.preventDefault();this.innerHTML='<p style=&quot;grid-column:1/-1;font-size:20px&quot;>תודה! (קונספט – הטופס אינו נשלח)</p>'">
+<label>שם מלא<input required></label><label>טלפון<input required type="tel" placeholder="050-1234567"></label>
+<label>יישוב<input></label><label>סוג נכס<select><option>בית</option><option>עסק</option><option>חקלאי</option><option>מוסד</option></select></label>
+<label class="f">מסלול מעניין<select><option>לא בטוח</option><option>SMART</option><option>BOT</option><option>PAY ONE</option><option>DAY ONE</option></select></label>
+<button class="btn p f" style="justify-content:center">שליחה</button></form></div></div></section>
+
+<footer class="ft"><div class="c"><div class="fg"><div><img src="https://triplesolar-staging-production.up.railway.app/assets/cb/ts-logo.png" alt="" style="height:38px;width:auto"><p>טריפל אס אנרגיה מתחדשת – תכנון, הקמה, תחזוקה וניהול של מתקנים סולאריים ומערכות אגירה.</p></div>
+<div><h4>פתרונות</h4><a href="/מערכת-סולארית-ביתית/">ביתית</a><a href="/מערכת-סולארית-מסחרית/">מסחרית</a><a href="/מערכת-btm/">אגירה BTM</a><a href="/ems-vpp/">EMS + VPP</a></div>
+<div><h4>החברה</h4><a href="#why">אודות</a><a href="#projects">פרויקטים</a><a href="/מרכז-ידע/">מרכז ידע</a></div>
+<div><h4>צור קשר</h4><span class="ph">[טלפון]</span><br><span class="ph">[כתובת]</span></div></div>
+<div class="cp"><span>© טריפל אס אנרגיה מתחדשת</span><span>קונספט עיצוב B – לא האתר הרשמי</span></div></div></footer>
+
+<div class="fab"><a class="f1" href="/מחשבונים/">▦ מחשבון</a><a class="f2" href="#lead">✉ פנייה</a></div>
+<script>
+const T={SMART:{t:'SMART',s:'רכישה חכמה – הלקוח רוכש את הציוד ישירות מהיבואן דרך מחלקת הרכש שלנו.',inv:'בעל הנכס',own:'בעל הנכס',rev:'חיסכון / הכנסה לבעל הנכס',we:'תכנון, רישוי, הקמה ושירות'},
+BOT:{t:'BOT',s:'מסלול שכירות ומימון – הקמה ותפעול על ידינו.',inv:'טריפל אס <span class="ph">[לאישור]</span>',own:'<span class="ph">[נתון יעודכן]</span>',rev:'<span class="ph">[נתון יעודכן]</span>',we:'מימון, הקמה, תפעול'},
+'PAY ONE':{t:'PAY ONE',s:'מסלול שכירות ומימון.',inv:'<span class="ph">[נתון יעודכן]</span>',own:'<span class="ph">[נתון יעודכן]</span>',rev:'<span class="ph">[נתון יעודכן]</span>',we:'תכנון, הקמה, שירות'},
+'DAY ONE':{t:'DAY ONE',s:'מסלול שכירות ומימון.',inv:'<span class="ph">[נתון יעודכן]</span>',own:'<span class="ph">[נתון יעודכן]</span>',rev:'<span class="ph">[נתון יעודכן]</span>',we:'תכנון, הקמה, שירות'}};
+const tabs=document.getElementById('tabs');
+function show(k){const d=T[k];document.querySelectorAll('.tab').forEach(b=>b.classList.toggle('on',b.dataset.k==k));
+const i=document.getElementById('tinfo');i.innerHTML=`<h3>${d.t}</h3><p class="lead">${d.s}</p><ul><li><b>מי משקיע</b><span>${d.inv}</span></li><li><b>בעלות על המערכת</b><span>${d.own}</span></li><li><b>הכנסות / חיסכון</b><span>${d.rev}</span></li><li><b>טריפל אס</b><span>${d.we}</span></li></ul><a class="btn p" href="/צור-קשר/#form">לבדיקת המסלול ←</a>`;i.classList.remove('fade');void i.offsetWidth;i.classList.add('fade');
+document.getElementById('own').textContent=k=='SMART'?'בעלות: בעל הנכס':'בעלות: לפי המסלול';
+document.getElementById('l1').textContent=k=='SMART'?'השקעת הלקוח':'השקעה / מימון';}
+Object.keys(T).forEach(k=>{const b=document.createElement('button');b.className='tab';b.dataset.k=k;b.textContent=k;b.onclick=()=>{show(k);clearInterval(auto)};tabs.appendChild(b)});
+show('SMART');let ki=0;const auto=setInterval(()=>{ki=(ki+1)%4;show(Object.keys(T)[ki])},6000);
+const P=[['מערכת סולארית ביתית','חשמל נקי וחיסכון לבית','/מערכת-סולארית-ביתית/','M8 26 24 12l16 14M12 23v15h24V23M19 38v-9h10v9'],
+['מערכת סולארית מסחרית','גגות עסקיים, תעשייה ומבני ציבור','/מערכת-סולארית-מסחרית/','M6 40h36M10 40V18h12v22M26 40V10h12v30M14 23h4M14 29h4M30 15h4M30 21h4M30 27h4'],
+['מערכת היברידית','ייצור + אגירה + גיבוי','/מערכת-סולארית-היברידית/','M24 6v6M24 36v6M6 24h6M36 24h6M24 17a7 7 0 1 0 .01 0M12 12l4 4M32 32l4 4'],
+['אגירה מאחורי המונה (BTM)','במתקן קיים או חדש','/מערכת-btm/','M14 10h20v32H14zM20 6h8v4M24 18l-4 8h8l-4 8'],
+['השבחה ושדרוג','יותר תפוקה ממערכת קיימת','/השבחה-ושדרוג-מערכת-סולארית/','M10 34l10-10 7 7 12-15M31 16h8v8'],
+['פרגולה סולארית','צל, עיצוב וחשמל','/פרגולה-סולרית/','M6 16l18-8 18 8M10 16v24M38 16v24M6 16h36M14 22h20'],
+['תחזוקה וניטור','שטיפות, בדיקות וחוזי שירות','/תחזוקת-מערכת-סולארית/','M30 8a8 8 0 0 0-9 11L8 32l4 4 13-13a8 8 0 0 0 11-9l-5 5-4-4z'],
+['EMS + VPP','ניהול אנרגיה חכם','/ems-vpp/','M8 36V24M16 36V16M24 36V20M32 36V10M40 36V18M6 40h36'],
+['אגירת אנרגיה','מתח נמוך ומתח גבוה','/מוצרים/','M8 16h28v18H8zM36 21h4v8h-4M14 22v6M20 22v6M26 22v6']];
+document.getElementById('pg').innerHTML=P.map((p,i)=>`<a class="pc rv ${['','d1','d2'][i%3]}" href="${p[2]}"><span class="ar">←</span><svg viewBox="0 0 48 48"><path d="${p[3]}" stroke-linecap="round" stroke-linejoin="round"/></svg><h3>${p[0]}</h3><p>${p[1]}</p></a>`).join('');
+const L=[1,2,3,4,5,6,7,8,9].map(i=>`<img src="https://triplesolar-staging-production.up.railway.app/assets/cb/logo${i}.png" alt="לוגו לקוח" loading="lazy">`).join('');document.getElementById('mq').innerHTML=L+L;
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');e.target.querySelectorAll('[data-n]').forEach(cnt);io.unobserve(e.target)}}),{threshold:.15});
+document.querySelectorAll('.rv,.hero,.why,.calc').forEach(el=>io.observe(el));
+function cnt(el){if(el._d)return;el._d=1;const n=+el.dataset.n,t0=performance.now(),D=matchMedia('(prefers-reduced-motion:reduce)').matches?0:1600;(function f(t){const p=D?Math.min(1,(t-t0)/D):1;el.textContent=Math.round(n*(1-Math.pow(1-p,3)));if(p<1)requestAnimationFrame(f)})(t0)}
+addEventListener('scroll',()=>hd.classList.toggle('sc',scrollY>20),{passive:true});
+</script>
+<script>
+document.querySelectorAll('form').forEach(f=>f.addEventListener('submit',e=>{e.preventDefault();alert('זו הדגמה לסקר בלבד – הפנייה לא נשלחת.');f.reset();}));
+</script>
+</body></html>
