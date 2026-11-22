@@ -1,0 +1,6 @@
+Source design A (unchanged): https://triplesolar-home-concept.lovable.app
+Lovable project: d1f4b559-2a71-47e7-bba5-5a3ecb93efb2 (Triplesolar Home Concept)
+Local copy: /workspace/survey-theme (does not modify Lovable or concept-b staging)
+Railway project: triples-calculators-demo
+Service: theme-survey-demo
+GitHub: https://github.com/oferazu8-bot/triples-theme-survey (public demo source)
